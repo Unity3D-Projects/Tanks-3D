@@ -41,9 +41,16 @@ public class ShellExplosion : MonoBehaviour
             explosionParticles.Play();
             explosionAudio.Play();
 
-            Destroy(explosionParticles.gameObject, explosionParticles.duration);
+            Destroy(explosionParticles.gameObject, 3f);
             Destroy(this.gameObject);
         }
+
+        explosionParticles.transform.parent = null;
+        explosionParticles.Play();
+        explosionAudio.Play();
+
+        Destroy(explosionParticles.gameObject, 3f);
+        Destroy(this.gameObject);
     }
 
     private float CalculateDamage(Vector3 targetPosition)
